@@ -5,7 +5,7 @@ import React from 'react'
 import Home from './pages/Home'
 import News from './pages/News'
 import Contact from './pages/Contact'
-import Content from './components/Contents'
+import Content from '~/components/Contents'
 
 
 function App() {
