@@ -1,47 +1,46 @@
-import {Routes, Route, Link, Navigate} from 'react-router-dom'
-import { Component, useState } from 'react'
-import React from 'react'
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { Fragment } from 'react';
 
-import Home from './pages/Home'
-import News from './pages/News'
-import Contact from './pages/Contact'
-import Content from '~/components/Contents'
+import { publicRoutes } from '~/routes'
+import { DefaultLayout, HeaderOnly } from '~/components/Layout';
+
+
+
 
 
 function App() {
-  const [show, setShow] = useState(false)
-
   return (
-    <div style={{padding: 30}}>
-      {/* <button onClick={()=> setShow(!show)}>toggle</button>
-      {show && <Content />} */}
-      <h3>React Router</h3>
-      <nav>
-        <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-             <Link to='/news'>News</Link>
-          </li>
-          <li>
-            <Link to='/contact'>Contact</Link>
-          </li>
-        </ul>
-      </nav>
-      <Content />
-      
+    <Router>
+      <div style={{padding: 30}}>
+        <Routes>
+          { publicRoutes.map( (route, index) => {
+            let Layout
+            const Page = route.component 
+            switch(route.layout){
+              case HeaderOnly:
+                Layout = route.layout
+                break
+              case null:
+                  Layout = Fragment
+                  break
+              default:
+                  Layout = DefaultLayout
+            }
+            // let Layout = DefaultLayout
+            // const Page = route.component
+            // if(route.layout){
+            //   Layout = route.layout
+            // } 
+            // else if (route.layout === null) {
+            //   Layout = Fragment
+            // }
+              return <Route key={index} path={route.path} element={<Layout><Page /></Layout>} />
 
-      <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/news' element={<News />} />/>
-        <Route path='/contact' element={<Contact />}/>
-      </Routes>
-    </div>
+          })}
+        </Routes>
+      </div>
+    </Router>
   );
 }
-//lkmdsmds dsdddddddddddddddddddddddddd;l;lkds              dsdsd;k;lldkdkd;l;ls
-
-
 
 export default App;
