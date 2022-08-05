@@ -11,7 +11,7 @@ import { DefaultLayout, HeaderOnly } from '~/components/Layout';
 function App() {
   return (
     <Router>
-      <div style={{padding: 30}}>
+      <div>
         <Routes>
           { publicRoutes.map( (route, index) => {
             let Layout
