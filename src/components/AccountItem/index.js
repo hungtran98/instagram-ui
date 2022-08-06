@@ -8,7 +8,7 @@ const cx = classNames.bind(styles)
 function AccoutItem() {
     return (
         <div className={cx('wrapper')}>
-            <img className={cx('avatar')} src="https://i.pinimg.com/736x/78/c2/76/78c276ab4b635897691028d8e7bbf7e3.jpg" alt="Acount item"/>
+            <img className={cx('avatar')} src="https://i.pinimg.com/564x/63/82/6f/63826fee8f494b14d53671007e0f8a59.jpg" alt="Acount item"/>
             <div className={cx('info')}>
                 <p className={cx('name')}>
                     <span>billieeilish</span>
