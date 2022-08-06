@@ -8,13 +8,11 @@
 .container {
     width: var(--default-layout-width);
     min-height: 700px;
-    background-color: #ED5565;
     display: flex;
     
 }
 
 .content {
     flex: 1;
-    background-color: #48CFAD;
     min-height: 700px;
 }
