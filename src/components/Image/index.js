@@ -3,8 +3,6 @@ import images from "~/assets/images";
 import styles from './Image.module.scss'
 import classNames from 'classnames'
 
-
-console.log(images.noImage);
 const Image = forwardRef(({src, clasName, alt, fallback: customFallback = images.noImage , ...props}, ref) => {
 
     const [fallback, setFallback] = useState('')
