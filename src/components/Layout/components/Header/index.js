@@ -5,6 +5,7 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccoutItem from '~/components/AccountItem'
 import Button from '~/components/Button'
 import Menu from '~/components/Popper/Menu';
+import Image from '~/components/Image';
 
 
 import Tippy from '@tippyjs/react';
@@ -13,6 +14,7 @@ import 'tippy.js/dist/tippy.css'; // optional
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner, faMagnifyingGlass, faPlus, faCloudArrowUp, faEllipsisVertical, faEarthAmerica, faCircleInfo, faKeyboard, faCircleQuestion, faMessage, faUser, faCoins, faGear, faCircleDollarToSlot, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { Fragment, useEffect, useState } from 'react';
+import { UploadIcon } from '~/components/icons';
 
 const cx = classNames.bind(styles)
 
@@ -128,7 +130,10 @@ function Header() {
                     currentUser ? (
                         <>
                             <Tippy delay={[0, 200]} content="Upload video" placement='bottom'>
-                                <button className={cx('action-btn')}> <FontAwesomeIcon icon={faCloudArrowUp}/></button>
+                                <button className={cx('action-btn')}>
+                                    <FontAwesomeIcon icon={faCloudArrowUp}/>
+                            
+                                </button>
                             </Tippy>
                         </>
                     ) : (
@@ -142,7 +147,11 @@ function Header() {
                 }
                     <Menu items = { currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img className={cx('user-avatar')} src='https://i.pinimg.com/474x/c8/50/b9/c850b96432042311da00eb1db6150666.jpg' alt='thanhhunglatui'/>
+                            <Image 
+                            src={'https://i.pinimg.com/564x/ad/28/77/d2877d5e564bc162178b54edd1e77be.jpg'}
+                            className={cx('user-avatar')}
+                            fallback = {'https://i.pinimg.com/736x/15/f5/a0/15f5a071081391068833c460cb4d4ff9.jpg'}
+                            />
                         ) : 
                         (
                             <button className={cx('more-button')}>
