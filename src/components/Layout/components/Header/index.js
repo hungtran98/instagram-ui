@@ -32,7 +32,8 @@ const MENU_ITEMS = [
                 {   type: 'language',
                     code: 'vi',
                     title: 'Tiếng Việt'
-                }
+                },
+                
             ]
         }
     },
@@ -113,7 +114,7 @@ function Header() {
                     <Menu items = { currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange} >
                         {currentUser ? (
                             <Image 
-                            src={'https://i.pinimg.com/564x/ad/28/77/d2877d5e564bc162178b54edd1e77be.jpg'}
+                            src={'https://i.pinimg.com/564x/84/5b/7c/845b7cc7370888ecd18ff585fa5ba3a2.jpg'}
                             className={cx('user-avatar')}
                             fallback = {'https://i.pinimg.com/736x/15/f5/a0/15f5a071081391068833c460cb4d4ff9.jpg'}
                             />
