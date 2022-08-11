@@ -5,6 +5,7 @@ import Button from '~/components/Button'
 import Menu from '~/components/Popper/Menu';
 import Image from '~/components/Image';
 import Search from '../Search';
+import routesConfig from '~/config/routes';
 
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; // optional
@@ -12,6 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faCloudArrowUp, faEllipsisVertical, faEarthAmerica, faCircleInfo, faKeyboard, faCircleQuestion, faMessage, faUser, faCoins, faGear, faCircleDollarToSlot, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { UploadIcon } from '~/components/icons';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles)
 
@@ -82,10 +84,9 @@ function Header() {
     return ( 
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
-                    <img src={images.logo} alt="logo-tiktok"/>
-                </div>
-               
+                    <Link to={routesConfig.home} className={cx('logo')}>
+                        <img src={images.logo} alt="logo-tiktok"/>
+                    </Link>
                {/* search */}
                <Search />
 
@@ -109,7 +110,7 @@ function Header() {
                         </>
                     )
                 }
-                    <Menu items = { currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
+                    <Menu items = { currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange} >
                         {currentUser ? (
                             <Image 
                             src={'https://i.pinimg.com/564x/ad/28/77/d2877d5e564bc162178b54edd1e77be.jpg'}
