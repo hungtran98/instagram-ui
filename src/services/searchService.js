@@ -1,10 +1,10 @@
-import * as rq from '~/utils/request'
+import * as httpRequest from '~/utils/httpRequest'
 
 
 
 export const search = async (q, type = 'less') => {
     try {
-        const res = await rq.getUser('users/search', {
+        const res = await httpRequest.getUser('users/search', {
             params: {
                 q: q,
                 type: type
